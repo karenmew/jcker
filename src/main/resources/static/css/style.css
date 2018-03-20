@@ -1,0 +1,239 @@
+@charset "utf-8";
+
+.jcker-nav {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.index_article {
+    margin: 0 auto;
+    max-width: 900px;
+    background-color: #ffffff;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 10px 10px 0;
+}
+
+.index_article:hover {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.index_article h3 {
+    font-size: 18px;
+}
+
+.index_article p {
+    font-size: 14px;
+}
+
+.index_body {
+    border: 0;
+    background-color: #f7f7f7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+}
+
+.page h1 {
+    font-size: 21px;
+}
+
+.page h2 {
+    font-size: 19px;
+}
+
+.page h3 {
+    font-size: 17px;
+}
+
+.page h4 {
+    font-size: 15px;
+}
+
+.page h5 {
+    font-size: 13px;
+}
+.page h6 {
+    font-size: 11px;
+}
+
+small {
+    font-size: small;
+}
+
+a {
+    text-decoration: none;
+    color: #292b2c;
+}
+
+a:active, a:focus, a:hover {
+    text-decoration: none;
+    color: #eb5055;
+}
+
+.page-content pre code {
+    line-height: 20px;
+    margin: 0;
+    padding: 1.3em;
+    color: #313131;
+    background-color: #f7f7f7;
+}
+.page-content p {
+    font-size: 14px;
+}
+.page-content h1, h2, h3, h4, h5, h6{
+    font-weight: 500;
+}
+
+.comment-pannel {
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+.comment-pannel textarea {
+    padding-left: 0;
+}
+
+.comment {
+    margin: 5px auto;
+    max-width: 900px;
+    background-color: #ffffff;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 10px 10px 0;
+}
+
+.comment:hover {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.comment-author {
+    font-size: larger;
+}
+
+.comment-date {
+    font-size: x-small;
+}
+
+.comment-content {
+    font-size: medium;
+    padding-left: 60px;
+}
+
+.comment hr {
+    border-bottom-style: dotted;
+}
+
+input {
+    border: 0;
+    padding: 0;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+}
+
+textarea {
+    height: 150px;
+    width: 100%;
+    outline: none;
+    overflow: hidden;
+    resize: none;
+    border: 0;
+    padding: 0 15px 0;
+}
+
+.social{
+    text-align: center;
+    font-size: small;
+}
+.jcker-footer-font{
+    font-size: 13px;
+    color: #5f5f5f;
+}
+
+.cm-header h1 {
+    font-size: 21px;
+}
+
+.cm-header h2 {
+    font-size: 19px;
+}
+
+.cm-header h3 {
+    font-size: 17px;
+}
+
+.cm-header h4 {
+    font-size: 15px;
+}
+
+.cm-header h5 {
+    font-size: 13px;
+}
+.cm-header h1, h2, h3, h4, h5{
+    font-weight: 400;
+}
+
+
+
+
+/*导航*/
+.BlogAnchor {
+    background-color: #ffffff;
+    padding: 0;
+    line-height: 180%;
+    position: fixed;
+    right: 48px;
+    top: 80px;
+    border: 0;
+}
+.BlogAnchor p {
+    font-size: 18px;
+    color: #15a230;
+    margin: 0 0 0.3rem 0;
+    text-align: right;
+}
+.BlogAnchor .AnchorContent {
+    padding: 5px 0px;
+    overflow: auto;
+}
+.BlogAnchor li{
+    text-indent: 0.5rem;
+    font-size: 14px;
+    list-style: none;
+}
+.BlogAnchor li .nav_item{
+    padding: 3px;
+}
+.BlogAnchor li .item_h1{
+    margin-left: 0rem;
+}
+.BlogAnchor li .item_h2{
+    margin-left: 2rem;
+    font-size: 0.8rem;
+}
+.BlogAnchor li .nav_item.current{
+    color: white;
+    background-color: #5cc26f;
+}
+#AnchorContentToggle {
+    font-size: 13px;
+    font-weight: normal;
+    color: #FFF;
+    display: inline-block;
+    line-height: 20px;
+    background: #5cc26f;
+    font-style: normal;
+    padding: 1px 8px;
+}
+.BlogAnchor a:hover {
+    color: #5cc26f;
+}
+.BlogAnchor a {
+    text-decoration: none;
+}
+
+
