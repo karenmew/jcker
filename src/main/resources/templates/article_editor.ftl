@@ -9,7 +9,7 @@
         <#if article??>
             <input type="hidden" name="id" value="${article.id}">
             <label>标题</label>
-            <input type="text" name="title" value="${article.title!''}">
+            <input type="text" name="title" value="${article.title!}">
             <div class="form-group">
                 <label for="exampleSelect1">分类</label>
                 <select class="form-control" id="exampleSelect1" name="category">
@@ -24,10 +24,10 @@
                 </select>
             </div>
             <label>标签</label>
-            <input type="text" name="tags" id="tags" value="${article.tags!''}" placeholder="标签">
+            <input type="text" name="tags" id="tags" value="${article.tags!}" placeholder="标签">
             <input type="submit" value="Save">
             <textarea name="content" id="mdeditor" cols="30" rows="30"
-                      class="form-control">${article.content!''}</textarea>
+                      class="form-control">${article.content!}</textarea>
         <#else >
             <label>标题</label>
             <input type="text" name="title" value="" placeholder="标题">

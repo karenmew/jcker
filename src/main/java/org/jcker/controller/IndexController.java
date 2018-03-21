@@ -3,6 +3,7 @@ package org.jcker.controller;
 import org.apache.commons.lang3.StringUtils;
 import org.jcker.dao.*;
 import org.jcker.domain.Article;
+import org.jcker.service.ArticleService;
 import org.jcker.utils.JckerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -26,6 +27,8 @@ import static org.jcker.controller.ArticleController.intro;
 public class IndexController {
     @Autowired
     private ArticleDao articleDao;
+    @Autowired
+    private ArticleService articleService;
     @Autowired
     private MenuDao menuDao;
 
@@ -59,7 +62,7 @@ public class IndexController {
 
     @RequestMapping("/article/{id}")
     public String viewArticle(@PathVariable int id, Model model) throws Exception {
-        Article article = articleDao.findOne(id);
+        Article article = articleService.getArticleById(id);
         article.setContent(JckerUtils.mdToHtml(article.getContent()));
         model.addAttribute("article", article);
 

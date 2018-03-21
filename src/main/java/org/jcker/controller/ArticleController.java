@@ -35,7 +35,7 @@ import java.util.Map;
  */
 @Controller
 public class ArticleController {
-    Logger log = Logger.getLogger(ArticleController.class);
+    Logger log = Logger.getLogger(getClass());
 
     @Autowired
     ArticleDao articleDao;
@@ -84,14 +84,14 @@ public class ArticleController {
         System.out.println("article = " + article);
         if (article.getId() <= 0) {
             article.setCreateDate(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
-            articleDao.save(article);
+            articleService.save(article);
         } else {
-            Article oldArticle = articleDao.findOne(article.getId());
+            Article oldArticle = articleService.getArticleById(article.getId());
             oldArticle.setTitle(article.getTitle());
             oldArticle.setCategory(article.getCategory());
             oldArticle.setTags(article.getTags());
             oldArticle.setContent(article.getContent());
-            articleDao.save(oldArticle);
+            articleService.save(oldArticle);
         }
         model.addAttribute("menuList", menuDao.findAll());
         model.addAttribute("articleList", articleDao.findAll());
@@ -131,7 +131,7 @@ public class ArticleController {
     public void articleHit(@PathVariable int id) {
         Article article = articleDao.findOne(id);
         article.setViewNum(article.getViewNum() + 1);
-        articleDao.save(article);
+        articleService.save(article);
     }
 
     /**

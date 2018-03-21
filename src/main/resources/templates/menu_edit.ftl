@@ -11,8 +11,8 @@
                 <form id="menu_form" action="/admin/menu/save" method="post">
                     <input type="hidden" name="id" value="${menu.id}">
                     <div class="row">
-                        <div class="col-md-4"><input type="text" name="name" value="${menu.name}" placeholder="名称(*)"></div>
-                        <div class="col-md-4"><input type="text" name="link" value="${menu.url}" placeholder="链接(URL)"></div>
+                        <div class="col-md-4"><input type="text" name="name" value="${menu.name!}" placeholder="名称(*)"></div>
+                        <div class="col-md-4"><input type="text" name="url" value="${menu.url!}" placeholder="链接(URL)"></div>
                         <input type="hidden" name="${_csrf.parameterName!}" value="${_csrf.token!}"/>
 
                         <div class="col-md-4"><input type="submit" class="btn btn-outline-primary btn-sm" value="Save"></div>

@@ -12,10 +12,6 @@
         <hr style="border-top-style: dashed;">
     ${article.content}
     </div>
-    <div class="row">
-        <div class="col-md-6 col-sm-6"><a href="#"><—</a></div>
-        <div class="col-md-6 col-sm-6"><a class="float-sm-right" href="#">—></a></div>
-    </div>
     <hr>
 <#include "comment.ftl">
 </div>

@@ -15,6 +15,10 @@ import java.util.List;
  * @version 1.0
  */
 public interface ArticleService {
+    Article save(Article article);
+
+    Article getArticleById(int id);
+
     List<Article> findRecentArticles();
 
     Page<Article> findAll(Pageable pageable);
