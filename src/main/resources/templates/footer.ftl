@@ -3,7 +3,7 @@
     <div class="social">
         <a class="social rss" target="blank" href="/feed">RSS</a>&nbsp;&nbsp;&nbsp;
         <a class="social zhihu" target="blank" href="https://www.zhihu.com/people/jcker.org">知乎</a>&nbsp;&nbsp;
-        <a class="social github" target="blank" href="https://github.com/jckerorg">Github</a>&nbsp;&nbsp;
+        <a class="social github" target="blank" href="https://github.com/3-8">Github</a>&nbsp;&nbsp;
         <a class="social twitter" target="blank" href="https://twitter.com/helloalanturing">Twitter</a>&nbsp;&nbsp;
         <a class="social csdn" target="blank" href="http://blog.csdn.net/u012137018">CSDN</a>
     </div>
@@ -16,7 +16,7 @@
                 <div>
                     <p>内心强大到混蛋,让优秀成为一种习惯</p>
                 </div>
-                <p style="margin-bottom: 0;">Powered by <a href="https://www.github.com/jckerorg">jcker</a></p>
+                <p style="margin-bottom: 0;">Powered by <a href="https://www.github.com/3-8">jcker</a></p>
                 <p style="margin-bottom: 0;">&copy; 2018 <a href="/">jcker.org</a>
                 </p>
             </div>
@@ -66,6 +66,23 @@
     hljs.initHighlightingOnLoad();
 
     $(function () {
+
+            t = $('.fixed').offset().top;
+            mh = $('.main').height();
+            fh = $('.fixed').height();
+            $(window).scroll(function(e){
+                s = $(document).scrollTop();
+                if(s > t - 10){
+                    $('.fixed').css('position','fixed');
+                    if(s + fh > mh){
+                        $('.fixed').css('top',mh-s-fh+'px');
+                    }
+                }else{
+                    $('.fixed').css('position','');
+                }
+            });
+
+
 
         generatePageCategory();
 
