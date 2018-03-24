@@ -10,9 +10,6 @@
             <a class="nav-link" onclick="menuClick(this);" href="/admin/article/list">文章管理</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" onclick="menuClick(this);" href="/admin/comment/list">留言管理</a>
-        </li>
-        <li class="nav-item">
             <a class="nav-link" onclick="menuClick(this);" href="/admin/category/list">分类管理</a>
         </li>
     </ul>

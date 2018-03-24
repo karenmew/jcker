@@ -28,9 +28,6 @@ public class Article extends BaseEntity {
     private String createDate;
     @Column(name = "view_num")
     private int viewNum;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "article")
-    @JsonIgnoreProperties("article")
-    private List<Comment> comments;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id")
     @JsonIgnoreProperties("articles")
@@ -58,14 +55,6 @@ public class Article extends BaseEntity {
         this.isPage = "Y";
         this.tags = "system";
         this.createDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-    }
-
-    public List<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
     }
 
     public String getIsPage() {

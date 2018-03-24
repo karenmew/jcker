@@ -1,8 +1,7 @@
 package org.jcker.controller;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
-import org.jcker.dao.CategoryDao;
 import org.jcker.domain.Category;
+import org.jcker.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +22,7 @@ import java.util.Map;
 @Controller
 public class CategoryController {
     @Autowired
-    private CategoryDao categoryDao;
+    private CategoryService categoryService;
 
     @RequestMapping("/admin/category/list")
     public String list() {
@@ -33,7 +32,7 @@ public class CategoryController {
     @RequestMapping("/admin/category/getList")
     @ResponseBody
     public Object getList() {
-        List<Category> data = categoryDao.findAll();
+        List<Category> data = categoryService.findAll();
 
         Map dataTable = new HashMap();
         int draw = 1;
@@ -51,21 +50,21 @@ public class CategoryController {
 
     @RequestMapping("/admin/category/edit/{id}")
     public String edit(Model model, @PathVariable int id) {
-        model.addAttribute("category", categoryDao.findOne(id));
+        model.addAttribute("category", categoryService.findOne(id));
         return "category";
     }
 
     @RequestMapping("/admin/category/save")
     @ResponseBody
     public boolean addCategory(Category category) {
-        categoryDao.save(category);
+        categoryService.save(category);
         return true;
     }
 
 
     @RequestMapping("/admin/category/delete/{id}")
     public String delete(@PathVariable int id) {
-        categoryDao.delete(id);
+        categoryService.delete(id);
         return "category_list";
     }
 

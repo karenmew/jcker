@@ -6,28 +6,19 @@
 
 .index_article {
     margin: 0 auto;
-    /*max-width: 900px;*/
     background-color: #ffffff;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
     padding: 10px 10px 0;
-
-    /* Rotate div */
-
-/*    transform: rotate(9deg);
-    -ms-transform: rotate(9deg);
-    -moz-transform: rotate(9deg);
-    -webkit-transform: rotate(9deg);
-    -o-transform: rotate(9deg);*/
 }
 
 .index_article:hover {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
-.index_article h3 {
-    font-size: 18px;
+.index_article h2 {
+    font-size: 30px;
 }
 
 .index_article p {
@@ -43,37 +34,13 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
 }
 
-.page h1 {
-    font-size: 21px;
-}
-
-.page h2 {
-    font-size: 19px;
-}
-
-.page h3 {
-    font-size: 17px;
-}
-
-.page h4 {
-    font-size: 15px;
-}
-
-.page h5 {
-    font-size: 13px;
-}
-
-.page h6 {
-    font-size: 11px;
-}
-
 small {
     font-size: small;
 }
 
 a {
     text-decoration: none;
-    color: #292b2c;
+    color: #23527c;
 }
 
 a:active, a:focus, a:hover {
@@ -97,45 +64,6 @@ a:active, a:focus, a:hover {
     font-weight: 500;
 }
 
-.comment-pannel {
-    margin: 0 auto;
-    /*    max-width: 900px;*/
-}
-
-.comment-pannel textarea {
-    padding-left: 0;
-}
-
-.comment {
-    margin: 5px auto;
-    /*    max-width: 900px;*/
-    background-color: #ffffff;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    padding: 10px 10px 0;
-}
-
-.comment:hover {
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
-}
-
-.comment-author {
-    font-size: larger;
-}
-
-.comment-date {
-    font-size: x-small;
-}
-
-.comment-content {
-    font-size: medium;
-    padding-left: 60px;
-}
-
-.comment hr {
-    border-bottom-style: dotted;
-}
 
 input {
     border: 0;
@@ -256,49 +184,120 @@ textarea {
     text-decoration: none;
 }
 
-
-
-
 /**
 sidebar
  */
-/**{ padding:0px; margin:0px;}*/
-/*.box {
-    width: 1000px;
-    background: #ccc;
-    margin: 0 auto;
-    overflow: hidden;
-}*/
-
-.main {
-/*    width: 770px;
-    height: 2000px;
-    background: #000;*/
-    float: left;
-}
-
-.sub {
-/*    width: 220px;
-    background: #FC6;*/
-    float: right;
-}
-
 .sub01 {
-/*    width: 220px;
-    height: 100px;
-    background: #0CC;*/
+    padding: 10px;
+    margin-bottom: 10px;
     background-color: #ffffff;
 
-    margin-bottom: 10px;
 }
 
 .fixed {
-/*    width: 220px;
-    height: 300px;
-    background: #F66;*/
-/*    font: normal 13px/30px \5FAE\8F6F\96C5\9ED1;*/
-/*    text-align: center;*/
+    padding: 10px;
     background-color: #ffffff;
-
     top: 10px;
+}
+
+/*这是百科右侧导航代码的样式表*/
+.directory-nav {
+    position: fixed;
+    right: 50px;
+    top: 100px;
+    padding: 12px 0 20px 32px;
+    display: none;
+}
+
+.directory-nav li {
+    height: 34px;
+    line-height: 34px;
+    position: relative;
+    cursor: pointer;
+}
+
+.directory-nav li a {
+}
+
+.directory-nav .l1 {
+}
+
+.directory-nav .l2 {
+    text-indent: 0.6em;
+}
+
+.directory-nav .l1 a {
+    font-size: 16px;
+}
+
+.directory-nav .l2 a {
+    font-size: 14px;
+}
+
+.directory-nav, .directory-nav a {
+    color: #666;
+}
+
+.directory-nav .cur a {
+    color: red;
+}
+
+.directory-nav .line {
+    position: absolute;
+    left: 4px;
+    top: 5px;
+    bottom: 5px;
+    z-index: 1;
+    width: 2px;
+    background: #ddd;
+}
+
+.directory-nav .c-top, .directory-nav .c-bottom {
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    display: block;
+    width: 10px;
+    height: 10px;
+    font-size: 0;
+    line-height: 0;
+    background: url(../images/directory-nav.png) no-repeat 0 -69px;
+}
+
+.directory-nav .c-dot {
+    position: absolute;
+    left: -32px;
+    top: 50%;
+    z-index: 2;
+    margin-top: -5px;
+    display: block;
+    width: 10px;
+    height: 10px;
+    font-size: 0;
+    line-height: 0;
+    background: url(../images/directory-nav.png) no-repeat -275px 0;
+}
+
+.directory-nav .c-top {
+    top: 0
+}
+
+.directory-nav .c-bottom {
+    bottom: 0
+}
+
+.directory-nav .cur-tag {
+    position: absolute;
+    left: -1px;
+    top: 30px;
+    z-index: 5;
+    margin-top: -6px;
+    display: block;
+    width: 19px;
+    height: 13px;
+    font-size: 0;
+    line-height: 0;
+    background: url(../images/directory-nav.png) no-repeat -271px -37px;
+    -webkit-transition: top .3s ease 0s;
+    transition: top .3s ease 0s;
 }

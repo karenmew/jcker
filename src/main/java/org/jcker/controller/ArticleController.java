@@ -3,7 +3,6 @@ package org.jcker.controller;
 import org.apache.log4j.Logger;
 import org.jcker.dao.ArticleDao;
 import org.jcker.dao.CategoryDao;
-import org.jcker.dao.CommentDao;
 import org.jcker.dao.MenuDao;
 import org.jcker.domain.Article;
 import org.jcker.domain.Category;
@@ -36,6 +35,8 @@ import java.util.Map;
 @Controller
 public class ArticleController {
     Logger log = Logger.getLogger(getClass());
+
+    private static final int PAGE_SIZE = 10;
 
     @Autowired
     ArticleDao articleDao;
@@ -144,7 +145,7 @@ public class ArticleController {
     public String category(@PathVariable int id, Model model) {
         System.out.println("category = " + id);
         Sort sort = new Sort(Sort.Direction.DESC, "id");
-        Pageable pageable = new PageRequest(0, 5, sort);
+        Pageable pageable = new PageRequest(0, PAGE_SIZE, sort);
         model.addAttribute("menuList", menuDao.findAll());
         Page<Article> articlePage = articleService.findAllByCategory(pageable, new Category(id));
         for (Article article :
@@ -164,7 +165,7 @@ public class ArticleController {
     @RequestMapping({"/search/article"})
     public String search(Article article, Model model) {
         Sort sort = new Sort(Sort.Direction.DESC, "id");
-        Pageable pageable = new PageRequest(0, 5, sort);
+        Pageable pageable = new PageRequest(0, PAGE_SIZE, sort);
         model.addAttribute("menuList", menuDao.findAll());
         Page<Article> articlePage = articleService.findAllByCategory(pageable, article.getCategory());
         for (Article article1 :

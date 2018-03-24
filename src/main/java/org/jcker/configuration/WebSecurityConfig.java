@@ -41,7 +41,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                             "/images/**",
                             "/js/**",
                             "/mdeditor/**",
-
                             "/",
                             "/add_comment",
                             "/page/**",

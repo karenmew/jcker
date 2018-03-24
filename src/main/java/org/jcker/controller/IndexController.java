@@ -25,6 +25,7 @@ import static org.jcker.controller.ArticleController.intro;
  */
 @Controller
 public class IndexController {
+    private static final int PAGE_SIZE = 10;
     @Autowired
     private ArticleDao articleDao;
     @Autowired
@@ -35,7 +36,7 @@ public class IndexController {
     @RequestMapping("/")
     public String index(Model model) {
         Sort sort = new Sort(Sort.Direction.DESC, "id");
-        Pageable pageable = new PageRequest(0, 5, sort);
+        Pageable pageable = new PageRequest(0, PAGE_SIZE, sort);
         model.addAttribute("menuList", menuDao.findAll());
         Page<Article> articlePage = articleDao.findAll(pageable);
         for (Article article :
@@ -43,13 +44,15 @@ public class IndexController {
             article.setPreview(intro(article.getContent(), 100));
         }
         model.addAttribute("pageObject", articlePage);
+        model.addAttribute("recentArticles", articleDao.findRecentArticles());
+
         return "index";
     }
 
     @RequestMapping("/page/{page}")
     public String page(Model model, @PathVariable int page) {
         Sort sort = new Sort(Sort.Direction.DESC, "id");
-        Pageable pageable = new PageRequest(page - 1, 5, sort);
+        Pageable pageable = new PageRequest(page - 1, PAGE_SIZE, sort);
         model.addAttribute("menuList", menuDao.findAll());
         Page<Article> articlePage = articleDao.findAll(pageable);
         for (Article article :
@@ -57,6 +60,8 @@ public class IndexController {
             article.setPreview(intro(article.getContent(), 100));
         }
         model.addAttribute("pageObject", articlePage);
+        model.addAttribute("recentArticles", articleDao.findRecentArticles());
+
         return "index";
     }
 
