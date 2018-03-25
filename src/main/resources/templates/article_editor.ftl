@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<#include "header_admin.ftl">
+<#include "admin_header.ftl">
 <body>
 <div class="container">
     <form action="/admin/article/save" method="post">
@@ -8,21 +8,9 @@
             <input type="hidden" name="${_csrf.parameterName!}" value="${_csrf.token!}"/>
         <#if article??>
             <input type="hidden" name="id" value="${article.id}">
+            <input type="hidden" name="id" value="${article.isPage}">
             <label>标题</label>
             <input type="text" name="title" value="${article.title!}">
-            <div class="form-group">
-                <label for="exampleSelect1">分类</label>
-                <select class="form-control" id="exampleSelect1" name="category">
-                    <option value="${article.category.id}">${article.category.name}</option>
-                    <#if categories??>
-                        <#list categories as category>
-                            <#if category.id != article.category.id>
-                                <option value="${category.id}">${category.name}</option>
-                            </#if>
-                        </#list>
-                    </#if>
-                </select>
-            </div>
             <label>标签</label>
             <input type="text" name="tags" id="tags" value="${article.tags!}" placeholder="标签">
             <input type="submit" value="Save">
@@ -31,16 +19,6 @@
         <#else >
             <label>标题</label>
             <input type="text" name="title" value="" placeholder="标题">
-            <div class="form-group">
-                <label for="exampleSelect1">分类</label>
-                <select class="form-control" id="exampleSelect1" name="category">
-                    <#if categories??>
-                        <#list categories as category>
-                            <option value="${category.id}">${category.name}</option>
-                        </#list>
-                    </#if>
-                </select>
-            </div>
             <label>标签</label>
             <input type="text" name="tags" id="tags" value="" placeholder="标签">
             <input class="btn btn-outline-primary btn-sm" type="submit" value="Save">

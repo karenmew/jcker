@@ -34,9 +34,6 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
 }
 
-small {
-    font-size: small;
-}
 
 a {
     text-decoration: none;
@@ -203,8 +200,7 @@ sidebar
 /*这是百科右侧导航代码的样式表*/
 .directory-nav {
     position: fixed;
-    right: 50px;
-    top: 100px;
+    top: 150px;
     padding: 12px 0 20px 32px;
     display: none;
 }

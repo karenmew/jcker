@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class AdminController {
     @RequestMapping("/admin")
     public String admin() {
-        return "index_admin";
+        return "admin";
     }
 }

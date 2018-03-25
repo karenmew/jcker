@@ -1,11 +1,8 @@
 package org.jcker.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by <a href='http://jcker.org'>Alan Turing</a>
@@ -22,16 +19,10 @@ public class Article extends BaseEntity {
     @Column(columnDefinition = "TEXT")
     private String content;
     private String title;
-    @Column(unique = true)
-    private String url;
     @Column(name = "create_date")
     private String createDate;
     @Column(name = "view_num")
     private int viewNum;
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "category_id")
-    @JsonIgnoreProperties("articles")
-    private Category category;
     private String tags;
     @Transient
     private String preview;
@@ -44,14 +35,13 @@ public class Article extends BaseEntity {
 
     /**
      * for create new page
+     *
      * @param title page title
-     * @param url page url from menu
+     * @param url   page url from menu
      */
     public Article(String title, String url) {
         this.content = "this is a new page, please add something here";
         this.title = title;
-        this.url = url;
-        this.category = new Category("默认分类");
         this.isPage = "Y";
         this.tags = "system";
         this.createDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
@@ -81,14 +71,6 @@ public class Article extends BaseEntity {
         this.preview = preview;
     }
 
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
     public String getCreateDate() {
         return createDate;
     }
@@ -105,13 +87,6 @@ public class Article extends BaseEntity {
         this.viewNum = viewNum;
     }
 
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
 
     public int getId() {
         return id;

@@ -10,16 +10,9 @@ function menuClick(tag) {
     $(tag).addClass('active');
 }
 
-function addPageView(id) {
+function articleHit(id) {
     var header = $("meta[name='_csrf_header']").attr("content");
     var token = $("meta[name='_csrf']").attr("content");
-
-    window.open('/article/' + id, '_self');
-    /*
-    $.post("/article/hit/" + id,
-        function (data, status) {
-            console.log('pv add...');
-        });*/
     $.ajax({
         url: "/article/hit/" + id,
         type: "POST",
@@ -33,6 +26,39 @@ function addPageView(id) {
         error: function (xhr, ajaxOptions, throwError) {
         }
     });
+}
+
+function rightSidebarIndex() {
+    var sideBar = $('.fixed');
+    var t = sideBar.offset().top;
+    var mh = $('.main').height();
+    var fh = sideBar.height();
+
+    $(window).scroll(function (e) {
+        var s = $(document).scrollTop();
+        var fw = sideBar.width() + 20;
+        if (s > t - 10) {
+            sideBar.css('position', 'fixed');
+            sideBar.css('width', fw + 'px');
+            if (s + fh > mh) {
+                sideBar.css('top', mh - s - fh + 'px');
+            }
+        } else {
+            sideBar.css('position', '');
+        }
+    });
+
+    var header = document.getElementById("jcker_header");
+    var headroom = new Headroom(header, {
+        "tolerance": 5,
+        "offset": 205,
+        "classes": {
+            "initial": "animated",
+            "pinned": "flipInX",
+            "unpinned": "flipOutX"
+        }
+    });
+    headroom.init();
 }
 
 /**
@@ -167,7 +193,6 @@ function DirectoryNav($h, config) {
     this.scrollIng = false;
     this.init();
 }
-
 DirectoryNav.prototype = {
     init: function () {
         this.make();
@@ -276,7 +301,6 @@ DirectoryNav.prototype = {
         });
     }
 };
-
 //实例化
 var directoryNav = new DirectoryNav($("h2,h3,h4,h5"), {
     scrollTopBorder: 0   //滚动条距离顶部多少的时候显示导航，如果为0，则一直显示

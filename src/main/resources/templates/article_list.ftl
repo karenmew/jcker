@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<#include "header_admin.ftl">
+<#include "admin_header.ftl">
 <body>
 <div class="container-fluid">
     <div class="row">
-    <#include "nav_admin.ftl">
-        <div class="col-md-9">
+        <div class="col-md-12">
             <a class="btn btn-sm btn-outline-primary" href="/admin/article/create">新建</a>
             <table id="article_table" class="display" cellspacing="0" width="100%">
                 <thead>
                 <tr>
                     <th>title</th>
-                    <th>category</th>
+                    <th>tags</th>
+                    <th>isPage</th>
                     <th>ID</th>
                 </tr>
                 </thead>
                 <tfoot>
                 <tr>
                     <th>title</th>
-                    <th>category</th>
+                    <th>tags</th>
+                    <th>isPage</th>
                     <th>ID</th>
                 </tr>
                 </tfoot>
@@ -43,18 +44,27 @@
             columns:
                     [
                         {data: "title", bSortable: false},
-                        {data: "category.name", bSortable: false},
-                        {data: "id", bSortable: false}
+                        {data: "tags", bSortable: false},
+                        {data: "isPage", bSortable: false},
+                        {data: "id", bSortable: false, hidden: true}
                     ],
             columnDefs:
                     [
                         {
-                            targets: [2],
+                            targets: [3],
                             data: "id",
                             render: function (data, type, full) {
                                 return "<a href='/admin/article/edit/" + data + "'>编辑</a>&nbsp;&nbsp;&nbsp;"
                                         + "<a href='/article/" + data + "' target='_blank'>预览</a>&nbsp;&nbsp;&nbsp;"
                                         + "<a href='/admin/article/delete/" + data + "'>删除</a>";
+                            }
+                        },
+                        {
+                            targets: [2],
+                            data: "isPage",
+                            render: function (data, type, full) {
+                                var a = full.isPage == "Y" ? "设为博客" : "设为菜单";
+                                return "<a href='/admin/article/isPage/" + full.id + "'> " + a + "</a>";
                             }
                         }
                     ]

@@ -46,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                             "/page/**",
                             "/search/**",
                             "/article/**",
-                            "/category/**",
+                            "/tag/**",
                             "/view/**"
                     ).permitAll()//符合匹配的，允许所有
                     .anyRequest().authenticated()//任何请求，必须认证过才才能操作

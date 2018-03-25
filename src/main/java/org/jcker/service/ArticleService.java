@@ -1,7 +1,6 @@
 package org.jcker.service;
 
 import org.jcker.domain.Article;
-import org.jcker.domain.Category;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -17,7 +16,7 @@ import java.util.List;
 public interface ArticleService {
     Article save(Article article);
 
-    Article getArticleById(int id);
+    Article findOne(int id);
 
     List<Article> findRecentArticles();
 
@@ -27,7 +26,7 @@ public interface ArticleService {
 
     Article getArticleByUrlAndIsPage(String url, String isPage);
 
-    Page<Article> findAllByCategory(Pageable pageable, Category category);
+    Page<Article> findAllByCategory(Pageable pageable, Specification<Article> specification);
 
     Article findByUrl(String url);
 

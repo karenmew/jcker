@@ -3,7 +3,6 @@ package org.jcker.service.impl;
 import org.apache.log4j.Logger;
 import org.jcker.dao.ArticleDao;
 import org.jcker.domain.Article;
-import org.jcker.domain.Category;
 import org.jcker.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,7 +12,6 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.criteria.Path;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -40,7 +38,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public Article getArticleById(int id) {
+    public Article findOne(int id) {
         ValueOperations operations = redisTemplate.opsForValue();
         if (redisTemplate.hasKey("article_" + id)) {
             log.info("get info from redis");
@@ -70,14 +68,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public Page<Article> findAllByCategory(Pageable pageable, Category category) {
-
-        Specification<Article> specification = (root, query, cb) -> {
-
-            Path<String> exp1 = root.get("category");
-
-            return cb.and(cb.equal(exp1, category.getId()));
-        };
+    public Page<Article> findAllByCategory(Pageable pageable, Specification<Article> specification) {
 
         return articleDao.findAll(specification, pageable);
     }

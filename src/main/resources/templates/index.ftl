@@ -7,18 +7,16 @@
     <div class="row">
         <div class="col-md-8 main">
         <#list pageObject.content as article>
-            <div class="index_article" id="article_${article.id}" onclick="addPageView(${article.id});">
-                <h2>
+            <div class="index_article" id="article_${article.id}" onclick="window.open('/article/' + ${article.id}, '_self');">
+                <h4>
                     <a href="/article/${article.id}">${article.title}</a>
-                </h2>
-                <p>${article.preview}...</p>
+                </h4>
+                <p style="color: #666;">${article.preview}...</p>
                 <p>
-                    <span class="" style="font-size: 12px;"><a href="/">Alan Turing</a></span>
-                    <span class="" style="font-size: 12px;">${article.createDate!'2016-06-02'}</span>
-                    <span class="" style="font-size: 12px;">浏览（${article.viewNum!'459'}）</span>
-                    <span class="" style="font-size: 12px;">评论（<a
-                            href="/article/${article.id}#comments">${article.comments?size}</a>）</span>
-                    <span class="small">#${article.category.name}</span>
+                    <span class="small"><a href="/">Alan Turing</a></span>
+                    <span class="small">${article.createDate!'2016-06-02'}</span>
+                    <span class="small">浏览（${article.viewNum!'459'}）</span>
+                    <span class="small">#${article.tags}</span>
                 </p>
             </div>
         </#list>
@@ -52,5 +50,17 @@
 </div>
 <#include "footer.ftl">
 
+<script>
+    //分页
+    $('#pagination').twbsPagination({
+        startPage: ${pageObject.number + 1},
+        totalPages: ${pageObject.totalPages},
+        visiblePages: 10,
+        initiateStartPageClick: false,
+        onPageClick: function (event, page) {
+            window.location.href = "/page/" + page;
+        }
+    });
+</script>
 </body>
 </html>

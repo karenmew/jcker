@@ -12,16 +12,18 @@
                         <a class="nav-link" href="/">首页</a>
                     </li>
                 <#if menuList??>
-                    <#list menuList as menu>
+                    <#list menuList as article>
                         <li class="nav-item">
-                            <a class="nav-link" href="/view/${menu.url}">${menu.name}</a>
+                            <a class="nav-link" href="/article/${article.id}">${article.title}</a>
                         </li>
                     </#list>
-                <#else>
                 </#if>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/login">登录</a>
+                    </li>
                 </ul>
                 <form class="form-inline my-2 my-md-2" action="/search/article" method="post">
-                    &nbsp;&nbsp;<input class="form-control" name="category.name" placeholder="探索关键字" aria-label="探索" type="text" maxlength="16">
+                    &nbsp;&nbsp;<input class="form-control" name="tag" placeholder="Search" aria-label="探索" type="text" maxlength="16">
                 </form>
             </div>
         </div>
