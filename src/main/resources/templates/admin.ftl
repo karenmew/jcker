@@ -3,10 +3,9 @@
 <html lang="en">
 <#include "admin_header.ftl">
 <body>
-<div class="container-fluid">
+<div class="container">
 <#include "nav.ftl">
-
-    <div class="row">
+    <div class="row" style="margin-top: 100px;">
         <main class="col-md-12">
             <h1>Dashboard</h1>
             <div class="row">

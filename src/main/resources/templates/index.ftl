@@ -20,7 +20,7 @@
                 </p>
             </div>
         </#list>
-            <ul class="pagination-sm" id="pagination"></ul>
+            <ul class="pagination-sm float-sm-right" id="pagination"></ul>
         </div>
         <div class="col-md-4 d-none d-md-block">
             <div class="sub01">
@@ -57,6 +57,10 @@
         totalPages: ${pageObject.totalPages},
         visiblePages: 10,
         initiateStartPageClick: false,
+        first: "<<",
+        prev: "<",
+        next: ">",
+        last: ">>",
         onPageClick: function (event, page) {
             window.location.href = "/page/" + page;
         }

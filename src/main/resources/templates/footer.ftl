@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12  d-none d-md-block" style="text-align: center">
-                <p>Powered by <a href="https://www.github.com/3-8">jcker</a>&copy; 2018 <a href="/">jcker.org</a></p>
+                <p style="margin-top: 1rem">Powered by <a href="https://www.github.com/3-8">jcker</a>&copy; 2018 <a href="/">jcker.org</a></p>
             </div>
         </div>
     </div>

@@ -43,7 +43,7 @@ public class IndexController {
         }
 
         model.addAttribute("pageObject", articlePage);
-        model.addAttribute("menuList", getMenuList());
+        model.addAttribute("menuList", getMenuList(articleDao));
         model.addAttribute("recentArticles", articleDao.findRecentArticles());
 
         return "index";
@@ -53,7 +53,7 @@ public class IndexController {
     public String page(Model model, @PathVariable int page) {
         Sort sort = new Sort(Sort.Direction.DESC, "id");
         Pageable pageable = new PageRequest(page - 1, PAGE_SIZE, sort);
-        model.addAttribute("menuList", getMenuList());
+        model.addAttribute("menuList", getMenuList(articleDao));
         Page<Article> articlePage = articleDao.findAll(pageable);
         for (Article article :
                 articlePage.getContent()) {
@@ -72,11 +72,11 @@ public class IndexController {
         model.addAttribute("article", article);
 
         model.addAttribute("recentArticles", articleDao.findRecentArticles());
-        model.addAttribute("menuList", getMenuList());
+        model.addAttribute("menuList", getMenuList(articleDao));
         return "page";
     }
 
-    private List<Article> getMenuList() {
+    private static List<Article> getMenuList(Object articleDao) {
         Sort sort = new Sort(Sort.Direction.DESC, "id");
 
         Pageable pageable = new PageRequest(0, 100, sort);
@@ -88,7 +88,7 @@ public class IndexController {
             return cb.and(cb.equal(exp1, "Y"));
         };
 
-        Page<Article> articlePage = articleDao.findAll(specification, pageable);
+        Page<Article> articlePage = ((ArticleDao)articleDao).findAll(specification, pageable);
         return articlePage.getContent();
     }
 }
