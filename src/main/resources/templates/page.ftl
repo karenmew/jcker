@@ -6,13 +6,15 @@
 <div class="container" style="margin: 100px auto 10px;">
     <div class="row">
         <div class="col-md-9 page-content">
-            <div style="text-align: center">
-                <h3>
-                ${article.title}
-                </h3>
-                <a class="small" href="/tag/${article.tags}">&nbsp;&nbsp;#${article.tags}</a>
+            <div class="dict" style="text-align: center; margin-bottom: 0;padding: 0;">
+                <h3 style="margin: 0; border: 0;">${article.title}</h3>
+                <p class="pcolor" style="margin-bottom: 0;">
+                <#list article.tags?split(",") as tag>
+                    <a class="small" href="/tag/${tag}">${tag}</a>
+                </#list>
+                </p>
             </div>
-            <hr style="border-top-style: dashed;">
+            <hr style="border-top-style: dashed; margin-top:0;">
         ${article.content}
 
             <hr>

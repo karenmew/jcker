@@ -22,6 +22,8 @@
 <script src="/js/headroom.min.js"></script>
 <script src="/js/jquery.twbsPagination.min.js"></script>
 <script src="/js/jcker.js"></script>
+<script src="/js/bootstrap-tagsinput.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-tagsinput/1.3.6/jquery.tagsinput.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/additional-methods.min.js"></script>

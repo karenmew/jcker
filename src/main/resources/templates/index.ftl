@@ -13,10 +13,18 @@
                 </h4>
                 <p style="color: #666;">${article.preview}...</p>
                 <p>
-                    <span class="small"><a href="/">Alan Turing</a></span>
-                    <span class="small">${article.createDate!'2016-06-02'}</span>
-                    <span class="small">浏览（${article.viewNum!'459'}）</span>
-                    <span class="small">#${article.tags}</span>
+                    <div class="row dict">
+                        <div class="col-md-4 col-sm-6" style="margin: 0;">
+                        <p class="small" style="font-size: small; margin: 1rem auto 0;">${article.createDate!'2016-06-02'} 浏览（${article.viewNum!'459'}）</p>
+                        </div>
+                        <div class="col-md-8 col-sm-6">
+                        <p class="pcolor">
+                        <#list article.tags?split(",") as tag>
+                            <a class="small pcolor" style="margin-bottom: 0;" href="/tag/${tag}">${tag}</a>
+                        </#list>
+                        </p>
+                        </div>
+                    </div>
                 </p>
             </div>
         </#list>

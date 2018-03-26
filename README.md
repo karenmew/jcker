@@ -1,6 +1,9 @@
 # [Jcker](http://www.jcker.org) Java and hacker
 [Jcker](http://www.jcker.org)一个简洁Java开源博客
-
+### 主页
+![index](http://github.jcker.org/images/jcker_index.png)
+### 博客页面
+![page](http://github.jcker.org/images/jcker_page.png)
 ## 使用
 在mysql数据库执行：create database jcker;
 一键搭建服务：java -jar jcker.jar  
