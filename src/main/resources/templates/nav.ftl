@@ -22,9 +22,6 @@
                         <a class="nav-link" href="/admin/login">登录</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-md-2" action="/search/article" method="post">
-                    &nbsp;&nbsp;<input class="form-control" name="tag" placeholder="Search" aria-label="探索" type="text" maxlength="16">
-                </form>
             </div>
         </div>
     </nav>

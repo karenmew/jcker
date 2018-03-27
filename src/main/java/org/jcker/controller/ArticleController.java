@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.persistence.Index;
 import javax.persistence.criteria.Path;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -126,7 +127,7 @@ public class ArticleController {
      * @param tag 标签
      * @return
      */
-    @RequestMapping({"/tag/{tag}","/search/article/{tag}"})
+    @RequestMapping({"/tag/{tag}"})
     public String category(@PathVariable String tag, Model model) {
         Sort sort = new Sort(Sort.Direction.DESC, "tags");
         Pageable pageable = new PageRequest(0, PAGE_SIZE, sort);
@@ -142,7 +143,7 @@ public class ArticleController {
 
         model.addAttribute("pageObject", articlePage);
         model.addAttribute("menuList", getMenuList());
-        model.addAttribute("recentArticles", articleDao.findRecentArticles());
+        model.addAttribute("recentArticles", IndexController.RECENT_ARTICLES);
 
         return "index";
     }

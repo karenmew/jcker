@@ -1,8 +1,7 @@
 package org.jcker.controller;
 
-import org.jcker.dao.*;
+import org.jcker.dao.ArticleDao;
 import org.jcker.domain.Article;
-import org.jcker.service.ArticleService;
 import org.jcker.utils.JckerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -29,6 +28,7 @@ import static org.jcker.controller.ArticleController.intro;
 @Controller
 public class IndexController {
     private static final int PAGE_SIZE = 10;
+    public static List<Article> RECENT_ARTICLES;
     @Autowired
     private ArticleDao articleDao;
 
@@ -44,8 +44,8 @@ public class IndexController {
 
         model.addAttribute("pageObject", articlePage);
         model.addAttribute("menuList", getMenuList(articleDao));
-        model.addAttribute("recentArticles", articleDao.findRecentArticles());
-
+        model.addAttribute("recentArticles", articlePage.getContent());
+        RECENT_ARTICLES = articlePage.getContent();
         return "index";
     }
 
@@ -60,7 +60,7 @@ public class IndexController {
             article.setPreview(intro(article.getContent(), 100));
         }
         model.addAttribute("pageObject", articlePage);
-        model.addAttribute("recentArticles", articleDao.findRecentArticles());
+        model.addAttribute("recentArticles", RECENT_ARTICLES);
 
         return "index";
     }
@@ -71,7 +71,7 @@ public class IndexController {
         article.setContent(JckerUtils.mdToHtml(article.getContent()));
         model.addAttribute("article", article);
 
-        model.addAttribute("recentArticles", articleDao.findRecentArticles());
+        model.addAttribute("recentArticles", RECENT_ARTICLES);
         model.addAttribute("menuList", getMenuList(articleDao));
         return "page";
     }
@@ -88,7 +88,7 @@ public class IndexController {
             return cb.and(cb.equal(exp1, "Y"));
         };
 
-        Page<Article> articlePage = ((ArticleDao)articleDao).findAll(specification, pageable);
+        Page<Article> articlePage = ((ArticleDao) articleDao).findAll(specification, pageable);
         return articlePage.getContent();
     }
 }
