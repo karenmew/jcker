@@ -37,7 +37,7 @@
     $(function () {
         $('#article_table').DataTable({
             searching: false,
-            paging: false,
+            paging: true,
             serverSide: true,
             processing: true,
             ajax: "/admin/article/getList",
@@ -63,8 +63,8 @@
                             targets: [2],
                             data: "isPage",
                             render: function (data, type, full) {
-                                var a = full.isPage == "Y" ? "设为博客" : "设为菜单";
-                                return "<a href='/admin/article/isPage/" + full.id + "'> " + a + "</a>";
+                                var a = full.isPage === "Y" ? "设为博客" : "设为菜单";
+                                return "<a href='/admin/article/isPage/" + full.id + "'>" + a + "</a>";
                             }
                         }
                     ]

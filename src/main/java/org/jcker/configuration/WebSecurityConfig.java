@@ -42,6 +42,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                             "/js/**",
                             "/mdeditor/**",
                             "/",
+                            "/h2-console/*",
                             "/add_comment",
                             "/page/**",
                             "/search/**",
